@@ -2,7 +2,6 @@ var tilemap = require('tilemap');
 
 var grid = tilemap(window.outerWidth, window.outerHeight);
 grid.on('createPoint', onCreatePoint);
-grid.zoom(0.5);
 
 var size = 10;
 
@@ -48,15 +47,15 @@ function createTile (x, y) {
     tile.element.attr('fill', 'rgba(210,210,210,1.0)');
   });
 
-  tile.on('mousedown', function () {
-    if (grid.itemAt(tile.x, tile.y)) {
-      grid.removeItem(tile.x, tile.y);
-    }
-    else grid.createItem(
-      'http://substack.net/projects/datacenter/rack_0.png',
-      tile.x, tile.y
-    );
-  });
+  // tile.on('mousedown', function () {
+  //   if (grid.itemAt(tile.x, tile.y)) {
+  //     grid.removeItem(tile.x, tile.y);
+  //   }
+  //   else grid.createItem(
+  //     'http://substack.net/projects/datacenter/rack_0.png',
+  //     tile.x, tile.y
+  //   );
+  // });
 }
 
 var selectedPoint = null;
