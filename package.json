@@ -1,0 +1,16 @@
+{
+  "name": "taser-squad",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node_modules/.bin/harp server",
+    "watch": "bin/watch"
+  },
+  "author": "pgte",
+  "license": "MIT",
+  "dependencies": {
+    "harp": "~0.11.2",
+    "tilemap": "~0.1.0"
+  }
+}
