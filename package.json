@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/harp server",
+    "start": "node_modules/.bin/harp server public",
     "watch": "bin/watch"
   },
   "author": "pgte",
   "license": "MIT",
   "dependencies": {
     "harp": "~0.11.2",
-    "tilemap": "~0.1.0"
+    "tilemap": "~0.1.0",
+    "xtend": "~2.1.2",
+    "underscore": "~1.6.0"
   }
 }
