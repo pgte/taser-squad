@@ -11,8 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "harp": "~0.11.2",
-    "tilemap": "~0.1.0",
     "xtend": "~2.1.2",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "raphael-browserify": "~2.1.0"
   }
 }
