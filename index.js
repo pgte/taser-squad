@@ -24,11 +24,6 @@ var soldiers = [];
     if (! placed) console.log('Failed to place soldier in ', place);
   }
 
-  // setInterval(function() {
-  //   soldiers.forEach(function(soldier) {
-  //     soldier.move(-1, -1);
-  //   });
-  // }, 1000);
 }());
 
 
@@ -59,6 +54,16 @@ var soldiers = [];
 
 /// start game
 
+
 game.start();
 
-var controller = game.controllers.control(soldiers[0]);
+var soldierNr = -1;
+var soldier;
+var controller;
+
+setInterval(function() {
+  if (controller) controller.deactivate();
+  soldierNr = (soldierNr + 1) % soldiers.length;
+  soldier = soldiers[soldierNr];
+  controller = game.controllers.control(soldier);
+}, 3000);

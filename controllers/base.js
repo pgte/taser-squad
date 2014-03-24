@@ -18,7 +18,7 @@ CB.key = function key(spec, fn) {
 };
 
 CB.unbindKeys = function unbindKeys() {
-  this.boundKeys.forEach(unbindKey.bind(this));
+  this.boundKeys.forEach(this.unbindKey.bind(this));
   this.boundKeys = [];
 };
 
