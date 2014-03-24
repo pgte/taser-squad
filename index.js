@@ -1,13 +1,21 @@
 var Game = require('./lib/game');
 
-var game = Game(document.body);
+var window = global;
+
+var options = {
+  width: $(window.document.body).width(),
+  height: $(window.document.body).height()
+};
+
+var game = Game(document.body, options);
 
 
 /// soldiers
 
+var soldiers = [];
+
 (function() {
   var soldierCount = 5
-  var soldiers = [];
   for(var i = 0; i < soldierCount; i ++) {
     var soldier = game.board.characters.create();
     soldiers.push(soldier);
@@ -16,11 +24,11 @@ var game = Game(document.body);
     if (! placed) console.log('Failed to place soldier in ', place);
   }
 
-  setInterval(function() {
-    soldiers.forEach(function(soldier) {
-      soldier.move(-1, -1);
-    });
-  }, 1000);
+  // setInterval(function() {
+  //   soldiers.forEach(function(soldier) {
+  //     soldier.move(-1, -1);
+  //   });
+  // }, 1000);
 }());
 
 
@@ -52,3 +60,5 @@ var game = Game(document.body);
 /// start game
 
 game.start();
+
+var controller = game.controllers.control(soldiers[0]);
