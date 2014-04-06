@@ -13,6 +13,7 @@
     "harp": "~0.11.2",
     "xtend": "~2.1.2",
     "underscore": "~1.6.0",
-    "raphael-browserify": "~2.1.0"
+    "eve": "~0.4.1",
+    "snapsvg": "git://github.com/sethvincent/Snap.svg#a34b8af69b"
   }
 }

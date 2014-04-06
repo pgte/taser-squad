@@ -7,7 +7,7 @@ var options = {
   height: $(window.document.body).height()
 };
 
-var game = Game(document.body, options);
+var game = Game('#game', options);
 
 
 /// soldiers
@@ -15,11 +15,11 @@ var game = Game(document.body, options);
 var soldiers = [];
 
 (function() {
-  var soldierCount = 5
+  var soldierCount = 5;
   for(var i = 0; i < soldierCount; i ++) {
-    var soldier = game.board.characters.create();
+    var soldier = game.board.characters.create({name: 'soldier ' + i});
     soldiers.push(soldier);
-    var place = { x:i, y: i};
+    var place = { x:i * 2, y: -i * 2};
     var placed = game.board.characters.place(soldier, place);
     if (! placed) console.log('Failed to place soldier in ', place);
   }
@@ -38,12 +38,13 @@ var soldiers = [];
   // game.board.walls.place(wallType, start, end);
 
 
-  start = {x: -5.5, y: -5.5};
-  end = {x: 5.5, y: -5.5};
-  game.board.walls.place(wallType, start, end);
+  // start = {x: -5.5, y: -5.5};
+  // end = {x: 5.5, y: -5.5};
+  // game.board.walls.place(wallType, start, end);
 
   start = {x: 5.5, y: 5.5};
   end = {x: 5.5, y: -5.5};
+  console.log('adding wall');
   game.board.walls.place(wallType, start, end);
 
   console.log('game.board.walls.walls:', game.board.walls.walls);
