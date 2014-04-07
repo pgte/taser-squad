@@ -21,6 +21,8 @@ CC.activate = function activate() {
   this.key('right', this.turnRight.bind(this));
   this.key('up', this.walk.bind(this));
   this.key('down', this.walkBack.bind(this));
+
+  this.game.board.grid.moveTo(this.character.x, this.character.y);
 };
 
 

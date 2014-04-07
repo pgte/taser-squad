@@ -7,7 +7,8 @@ var container = $('#game');
 var options = {
   width: container.width(),
   height: container.height(),
-  zoom: 0.5
+  zoom: 0.5,
+  size: 40
 };
 
 var game = Game(container[0], options);
