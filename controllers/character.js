@@ -3,8 +3,8 @@ var ControllerBase = require('./base');
 
 module.exports = CharacterController;
 
-function CharacterController(character) {
-  ControllerBase.apply(this);
+function CharacterController(game, character) {
+  ControllerBase.call(this, game);
 
   this.character = character;
 }
@@ -46,12 +46,19 @@ CC.turnRight = function turnRight() {
 /// walk
 
 CC.walk = function walk() {
-  this.character.walk();
+  this.character.walk(this.centerBoard.bind(this));
 };
 
 
 /// walkBack
 
 CC.walkBack = function walkBack() {
-  this.character.walkBack();
+  this.character.walkBack(this.centerBoard.bind(this));
 };
+
+
+/// centerBoard
+
+CC.centerBoard = function centerBoard() {
+  this.game.board.grid.moveTo(this.character.x, this.character.y);
+}

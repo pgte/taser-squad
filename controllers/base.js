@@ -3,7 +3,8 @@ var keymaster = require('../lib/keymaster');
 
 module.exports = ControllerBase;
 
-function ControllerBase() {
+function ControllerBase(game) {
+  this.game = game;
   this.boundKeys = [];
 }
 
