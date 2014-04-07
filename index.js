@@ -34,7 +34,7 @@ var soldiers = [];
 /// walls
 
 (function() {
-  var wallType = game.board.wallTypes.create();
+  var wallType = game.board.walls.types.create();
 
   var start = {x: -5.5, y: -5.5};
   var end = {x: -5.5, y: 5.5};
@@ -47,10 +47,7 @@ var soldiers = [];
 
   start = {x: 5.5, y: 5.5};
   end = {x: 5.5, y: -5.5};
-  console.log('adding wall');
   game.board.walls.place(wallType, start, end);
-
-  console.log('game.board.walls.walls:', game.board.walls.walls);
 
 }());
 
@@ -68,11 +65,11 @@ game.load(function(err) {
   var soldier;
   var controller;
 
-  setInterval(function() {
+  // setInterval(function() {
     if (controller) controller.deactivate();
     soldierNr = (soldierNr + 1) % soldiers.length;
     soldier = soldiers[soldierNr];
     controller = game.controllers.control(soldier);
-  }, 3000);
+  // }, 3000);
 });
 
