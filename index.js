@@ -59,15 +59,20 @@ var soldiers = [];
 /// start game
 
 
-game.start();
+game.load(function(err) {
+  if (err) throw err;
 
-var soldierNr = -1;
-var soldier;
-var controller;
+  console.log('loaded all');
 
-setInterval(function() {
-  if (controller) controller.deactivate();
-  soldierNr = (soldierNr + 1) % soldiers.length;
-  soldier = soldiers[soldierNr];
-  controller = game.controllers.control(soldier);
-}, 3000);
+  var soldierNr = -1;
+  var soldier;
+  var controller;
+
+  setInterval(function() {
+    if (controller) controller.deactivate();
+    soldierNr = (soldierNr + 1) % soldiers.length;
+    soldier = soldiers[soldierNr];
+    controller = game.controllers.control(soldier);
+  }, 3000);
+});
+
