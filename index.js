@@ -64,9 +64,9 @@ var soldierNr = -1;
 var soldier;
 var controller;
 
-// setInterval(function() {
-//   if (controller) controller.deactivate();
+setInterval(function() {
+  if (controller) controller.deactivate();
   soldierNr = (soldierNr + 1) % soldiers.length;
   soldier = soldiers[soldierNr];
   controller = game.controllers.control(soldier);
-// }, 3000);
+}, 3000);
