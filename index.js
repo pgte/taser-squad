@@ -2,13 +2,15 @@ var Game = require('./lib/game');
 
 var window = global;
 
+var container = $('#game');
+
 var options = {
-  width: $(window.document.body).width(),
-  height: $(window.document.body).height()
+  width: container.width(),
+  height: container.height(),
+  zoom: 0.5
 };
 
-var game = Game('#game', options);
-
+var game = Game(container[0], options);
 
 /// soldiers
 
@@ -33,14 +35,14 @@ var soldiers = [];
 (function() {
   var wallType = game.board.wallTypes.create();
 
-  // var start = {x: -5.5, y: -5.5};
-  // var end = {x: -5.5, y: 5.5};
-  // game.board.walls.place(wallType, start, end);
+  var start = {x: -5.5, y: -5.5};
+  var end = {x: -5.5, y: 5.5};
+  game.board.walls.place(wallType, start, end);
 
 
-  // start = {x: -5.5, y: -5.5};
-  // end = {x: 5.5, y: -5.5};
-  // game.board.walls.place(wallType, start, end);
+  start = {x: -5.5, y: -5.5};
+  end = {x: 5.5, y: -5.5};
+  game.board.walls.place(wallType, start, end);
 
   start = {x: 5.5, y: 5.5};
   end = {x: 5.5, y: -5.5};
