@@ -7,11 +7,24 @@ var container = $('#game');
 var options = {
   width: container.width(),
   height: container.height(),
-  zoom: 0.5,
-  size: 40
+  board: {
+    zoom: 0.5,
+    size: 40
+  }
 };
 
 var game = Game(container[0], options);
+
+$(function() {
+  var $window = $(window);
+  $window.on('resize', function() {
+    var width = $window.width();
+    var height = $window.height();
+    container.width(width);
+    container.height(height);
+    game.resize(width, height);
+  });
+});
 
 /// soldiers
 
