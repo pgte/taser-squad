@@ -27,6 +27,7 @@ MC.activate = function activate() {
 
 MC.deactivate = function deactivate() {
   this.unbindKeys();
+  this.menu.clear();
 };
 
 MC.up = function up() {
@@ -38,7 +39,9 @@ MC.down = function down() {
 };
 
 MC.select = function select() {
-  this.menu.select();
-  if (this.cb) this.cb.call(this.option);
-  this.stop();
+  var self = this;
+  this.menu.select(function() {
+    if (self.cb) self.cb.call(self.option);
+    self.stop();
+  });
 };

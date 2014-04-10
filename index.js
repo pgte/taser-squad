@@ -85,25 +85,36 @@ game.load(function(err) {
   controller = game.controllers.control(soldier);
   // }, 3000);
 
-  setTimeout(function() {
-    var menu = game.menus.create({
-      options: [
-        {
-          label: 'Wow',
-          value: 'wow'
-        },
-        {
-          label: 'Zaa',
-          value: 'zaa'
-        }
-      ]}, selectedMenu);
-
-    var controller = game.controllers.control(menu);
-  }, 1000);
-
-  function selectedMenu(item) {
-    console.log('selected', item);
-  }
+  setTimeout(showMenu, 1000);
 
 });
 
+function showMenu() {
+  var menu = game.menus.create({
+    options: [
+      {
+        label: 'Wow',
+        value: 'wow'
+      },
+      {
+        label: 'Zaa',
+        value: 'zaa'
+      },
+      {
+        label: 'Wagga',
+        value: 'wagga'
+      },
+      {
+        label: 'Binga',
+        value: 'binga'
+      }
+    ]}, selectedMenu);
+
+  var controller = game.controllers.control(menu);
+
+  function selectedMenu(item) {
+    console.log('selected', item);
+    setTimeout(showMenu, 1000);
+  }
+
+}
