@@ -1,5 +1,6 @@
+var EventEmitter = require('events');
+var inherits = require('util').inherits;
 var keymaster = require('../lib/keymaster');
-// keymaster.noConflict();
 
 module.exports = ControllerBase;
 
@@ -7,6 +8,8 @@ function ControllerBase(game) {
   this.game = game;
   this.boundKeys = [];
 }
+
+inherits(ControllerBase, EventEmitter);
 
 var CB = ControllerBase.prototype;
 
@@ -27,6 +30,16 @@ CB.unbindKey = function unbindKey(spec) {
   keymaster.unbind(spec);
 };
 
+CB.start = function(cb) {
+  this.stopCallback = cb;
+  this.activate();
+};
+
+CB.stop = function() {
+  this.deactivate();
+  if (this.stopCallback) this.stopCallback.call();
+  this.emit('stopped');
+};
 
 /// abstract methods
 

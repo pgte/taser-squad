@@ -79,10 +79,31 @@ game.load(function(err) {
   var controller;
 
   // setInterval(function() {
-    if (controller) controller.deactivate();
-    soldierNr = (soldierNr + 1) % soldiers.length;
-    soldier = soldiers[soldierNr];
-    controller = game.controllers.control(soldier);
+  if (controller) controller.deactivate();
+  soldierNr = (soldierNr + 1) % soldiers.length;
+  soldier = soldiers[soldierNr];
+  controller = game.controllers.control(soldier);
   // }, 3000);
+
+  setTimeout(function() {
+    var menu = game.menus.create({
+      options: [
+        {
+          label: 'Wow',
+          value: 'wow'
+        },
+        {
+          label: 'Zaa',
+          value: 'zaa'
+        }
+      ]}, selectedMenu);
+
+    var controller = game.controllers.control(menu);
+  }, 1000);
+
+  function selectedMenu(item) {
+    console.log('selected', item);
+  }
+
 });
 
