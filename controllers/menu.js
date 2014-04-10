@@ -33,10 +33,12 @@ MC.deactivate = function deactivate() {
 };
 
 MC.up = function up() {
+  if (this.selected) return;
   this.option = this.menu.up();
 };
 
 MC.down = function down() {
+  if (this.selected) return;
   this.option = this.menu.down();
 };
 
