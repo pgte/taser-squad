@@ -7,6 +7,8 @@ function MenuController(game, menu) {
   ControllerBase.call(this, game);
 
   this.menu = menu;
+
+  this.selected = false;
 }
 
 inherits(MenuController, ControllerBase);
@@ -39,6 +41,9 @@ MC.down = function down() {
 };
 
 MC.select = function select() {
+  if (this.selected) return;
+  this.selected = true;
+
   var self = this;
   this.menu.select(function() {
     if (self.cb) self.cb.call(self.option);
