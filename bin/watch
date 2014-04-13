@@ -1,3 +1,3 @@
 #!/bin/bash
 
-node_modules/.bin/watchify index.js -o public/js/bundle.js -v --debug
+node_modules/.bin/watchify index.js -t brfs -o public/js/bundle.js -v --debug

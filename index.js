@@ -1,3 +1,4 @@
+var fs = require('fs');
 var Game = require('./lib/game');
 
 var window = global;
@@ -9,7 +10,7 @@ var options = {
   height: container.height(),
   board: {
     zoom: 0.5,
-    size: 40
+    size: 20
   }
 };
 
@@ -29,7 +30,7 @@ $(function() {
 
 /// tiles
 
-var tileType = game.board.tiles.types.create();
+var tileType = game.board.tiles.types.create('D', { description: 'dirt' });
 var soldierType = game.board.characters.types.create();
 var wallType = game.board.walls.types.create();
 
@@ -40,17 +41,10 @@ var wallType = game.board.walls.types.create();
 game.load(function(err) {
   if (err) throw err;
 
+
   console.log('loaded all');
 
-
-  /// tiles
-
-  var halfSize = options.board.size / 2;
-  for (var x = -halfSize; x < halfSize; x++) {
-    for (var y = -halfSize; y < halfSize; y++) {
-      game.board.tiles.create(tileType, x, y);
-    }
-  }
+  game.board.floor.load(fs.readFileSync('./public/maps/base/floor.txt', {encoding: 'utf8'}));
 
 
   /// walls
